@@ -33,12 +33,10 @@ public class Point {
     }
     public boolean isCollinear(Point p1, Point p2)
     {
-        if((p1.getX()-xVal) == 0 || (p2.getX()-p1.getX() == 0))
+        if((p1.getX()-xVal) == 0 || (p2.getX()-xVal == 0))
             return false;
-        if((double)(p1.getY()-yVal)/(p1.getX()-xVal) == (double)(p2.getY()-yVal)/(p2.getX()-xVal))
-        {
-            return true;
-        }
-        return false;
+        double slope1 = (double)(yVal - p1.getY()) / (double)(xVal - p1.getX());
+        double slope2 = (double)(yVal - p2.getY()) / (double)(xVal - p2.getX());
+        return slope1 == slope2;
     }
 }
