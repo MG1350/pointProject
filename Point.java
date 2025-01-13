@@ -31,12 +31,11 @@ public class Point {
         int yDist = Math.abs(yVal - other.getY());
         return xDist + yDist;
     }
-    public boolean isCollinear(Point p1, Point p2)
-    {
-        if((p1.getX()-xVal) == 0 || (p2.getX()-xVal == 0))
-            return false;
-        double slope1 = (double)(yVal - p1.getY()) / (double)(xVal - p1.getX());
-        double slope2 = (double)(yVal - p2.getY()) / (double)(xVal - p2.getX());
-        return slope1 == slope2;
+    public boolean isCollinear(Point p1, Point p2) {
+        if ((xVal == p1.getX() && xVal == p2.getX()) || (yVal == p1.getY() && yVal == p2.getY())) 
+        {
+            return true;
+        }
+        return (double)(yVal - p1.getY()) / (xVal - p1.getX()) == (double)(yVal - p2.getY()) / (xVal - p2.getX());  
     }
 }
